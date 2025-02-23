@@ -18,39 +18,57 @@ class CustomAppbar extends StatelessWidget {
         margin: EdgeInsets.only(top: 20.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            CircleAvatar(
-              radius: 25.r,
-              backgroundColor: kSecondary,
-              backgroundImage: const NetworkImage(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuNhTZJTtkR6b-ADMhmzPvVwaLuLdz273wvQ&s"),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: 6.h, left: 8.h),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ReusableText(
-                      text: "Deliver to",
-                      style: appStyle(13, kSecondary, FontWeight.w600)),
-                  SizedBox(
-                    width: width * 0.65,
-                    child: Text(
-                      "New York, 10001, Bollivard Street",
-                      style: appStyle(11, kGrayLight, FontWeight.normal),
-                    ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                CircleAvatar(
+                  radius: 22.r,
+                  backgroundColor: kSecondary,
+                  backgroundImage: const NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuNhTZJTtkR6b-ADMhmzPvVwaLuLdz273wvQ&s"),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 6.h, left: 8.h),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ReusableText(
+                          text: "Deliver to",
+                          style: appStyle(13, kSecondary, FontWeight.w600)),
+                      SizedBox(
+                        width: width * 0.65,
+                        child: Text(
+                          "New York, 10001, Bollivard Street",
+                          style: appStyle(11, kGrayLight, FontWeight.normal),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-            const Text(
-              "❄️",
-              style: TextStyle(fontSize: 35),
+            Text(
+              getTimeOfDay(),
+              style: const TextStyle(fontSize: 31),
             )
           ],
         ),
       ),
     );
+  }
+
+  String getTimeOfDay() {
+    DateTime now = DateTime.now();
+    int hour = now.hour;
+    if (hour >= 0 && hour < 12) {
+      return " ☀️ ";
+    }
+    if (hour >= 12 && hour < 16) {
+      return " ⛅ ";
+    }
+    return " 🌙 ";
   }
 }

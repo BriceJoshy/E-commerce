@@ -42,7 +42,8 @@ class CustomAppbar extends StatelessWidget {
                         width: width * 0.65,
                         child: Text(
                           "New York, 10001, Bollivard Street",
-                          style: appStyle(11, kGrayLight, FontWeight.normal),
+                          style:
+                              appStyle(11, Colors.black38, FontWeight.normal),
                         ),
                       ),
                     ],

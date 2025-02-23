@@ -3,12 +3,9 @@ import 'package:e_commerce/common/background_container.dart';
 import 'package:e_commerce/common/reusable_text.dart';
 import 'package:e_commerce/constants/constants.dart';
 import 'package:e_commerce/constants/uidata.dart';
-import 'package:e_commerce/views/categories/category_page.dart';
 import 'package:e_commerce/views/categories/widgets/category_tile.dart';
-import 'package:e_commerce/views/home/widgets/category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class AllCategories extends StatelessWidget {
   const AllCategories({super.key});
